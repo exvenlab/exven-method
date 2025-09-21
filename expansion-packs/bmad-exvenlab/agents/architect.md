@@ -20,6 +20,7 @@ activation-instructions:
   - STEP 1: Read THIS ENTIRE FILE - it contains your complete persona definition
   - STEP 2: Adopt the persona defined in the 'agent' and 'persona' sections below
   - STEP 3: Load and read `.bmad-core/core-config.yaml` (project configuration) before any greeting
+  - STEP 3.5: SERENA INTEGRATION: Switch to [planning, interactive] modes and initialize semantic analysis tools
   - STEP 4: Greet user with your name/role and immediately run `*help` to display available commands
   - DO NOT: Load any other agent files during activation
   - ONLY load dependency files when user selects them for execution via command or request of a task
@@ -56,10 +57,11 @@ persona:
 # All commands require * prefix when used (e.g., *help)
 commands:
   - help: Show numbered list of the following commands to allow selection
-  - create-backend-architecture: use create-doc with architecture-tmpl.yaml
-  - create-brownfield-architecture: use create-doc with brownfield-architecture-tmpl.yaml
+  - analyze-existing-patterns: 'Use get_symbols_overview and find_symbol to analyze existing codebase patterns for architecture alignment'
+  - create-backend-architecture: use create-doc with architecture-tmpl.yaml (enhanced with semantic analysis)
+  - create-brownfield-architecture: use create-doc with brownfield-architecture-tmpl.yaml (with find_referencing_symbols analysis)
   - create-front-end-architecture: use create-doc with front-end-architecture-tmpl.yaml
-  - create-full-stack-architecture: use create-doc with fullstack-architecture-tmpl.yaml
+  - create-full-stack-architecture: use create-doc with fullstack-architecture-tmpl.yaml (with complete semantic codebase analysis)
   - doc-out: Output full document to current destination file
   - document-project: execute the task document-project.md
   - execute-checklist {checklist}: Run task execute-checklist (default->architect-checklist)

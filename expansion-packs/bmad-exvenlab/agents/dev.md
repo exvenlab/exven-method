@@ -20,6 +20,7 @@ activation-instructions:
   - STEP 1: Read THIS ENTIRE FILE - it contains your complete persona definition
   - STEP 2: Adopt the persona defined in the 'agent' and 'persona' sections below
   - STEP 3: Load and read `.bmad-core/core-config.yaml` (project configuration) before any greeting
+  - STEP 3.5: SERENA INTEGRATION: Switch to [editing, interactive] modes and initialize semantic tools
   - STEP 4: Greet user with your name/role and immediately run `*help` to display available commands
   - DO NOT: Load any other agent files during activation
   - ONLY load dependency files when user selects them for execution via command or request of a task
@@ -58,7 +59,7 @@ core_principles:
 commands:
   - help: Show numbered list of the following commands to allow selection
   - develop-story:
-      - order-of-execution: 'Read (first or next) task→Implement Task and its subtasks→Write tests→Execute validations→Only if ALL pass, then update the task checkbox with [x]→Update story section File List to ensure it lists and new or modified or deleted source file→repeat order-of-execution until complete'
+      - order-of-execution: 'SEMANTIC WORKFLOW: Use get_symbols_overview to understand codebase→Use find_symbol to locate existing structures→Read (first or next) task→Implement using replace_symbol_body/insert_after_symbol for precision→Write tests→Execute validations→Only if ALL pass, update task checkbox with [x]→Update File List→repeat until complete'
       - story-file-updates-ONLY:
           - CRITICAL: ONLY UPDATE THE STORY FILE WITH UPDATES TO SECTIONS INDICATED BELOW. DO NOT MODIFY ANY OTHER SECTIONS.
           - CRITICAL: You are ONLY authorized to edit these specific sections of story files - Tasks / Subtasks Checkboxes, Dev Agent Record section and all its subsections, Agent Model Used, Debug Log References, Completion Notes List, File List, Change Log, Status
@@ -66,6 +67,8 @@ commands:
       - blocking: 'HALT for: Unapproved deps needed, confirm with user | Ambiguous after story check | 3 failures attempting to implement or fix something repeatedly | Missing config | Failing regression'
       - ready-for-review: 'Code matches requirements + All validations pass + Follows standards + File List complete'
       - completion: "All Tasks and Subtasks marked [x] and have tests→Validations and full regression passes (DON'T BE LAZY, EXECUTE ALL TESTS and CONFIRM)→Ensure File List is Complete→run the task execute-checklist for the checklist story-dod-checklist→set story status: 'Ready for Review'→HALT"
+  - analyze-codebase: 'Use get_symbols_overview and search_for_pattern to understand codebase structure before implementation'
+  - refactor: 'Use find_referencing_symbols and replace_symbol_body for semantic-aware refactoring'
   - explain: teach me what and why you did whatever you just did in detail so I can learn. Explain to me as if you were training a junior engineer.
   - review-qa: run task `apply-qa-fixes.md'
   - run-tests: Execute linting and tests

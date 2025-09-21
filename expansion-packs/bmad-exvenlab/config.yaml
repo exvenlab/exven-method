@@ -1,11 +1,18 @@
 # <!-- Powered by BMAD™ Core -->
 name: bmad-exvenlab
 version: 1.0.0
-short-title: ExvenLab Framework
+short-title: ExvenLab Framework (Serena-Enhanced)
 description: >-
-  Complete ExvenLab AI-powered development framework providing all core BMAD
-  agents, workflows, and tools for comprehensive software development.
-  Includes specialized agents for analysis, development, architecture,
-  project management, and quality assurance with full workflow integration.
+  Complete ExvenLab AI-powered development framework with full Serena semantic integration.
+  Provides all core BMAD agents enhanced with semantic code analysis, precision editing,
+  and intelligent workflow management. Features mode-aware agents, semantic tools,
+  and advanced codebase understanding for next-generation AI development.
 author: ExvenLab
-slashPrefix: bmad-exven
+slashPrefix: bmad-serena
+serena_integration: true
+enhanced_capabilities:
+  - semantic_code_analysis
+  - precision_editing
+  - mode_aware_agents
+  - intelligent_workflows
+  - advanced_codebase_understanding

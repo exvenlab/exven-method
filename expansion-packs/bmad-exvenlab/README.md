@@ -1,10 +1,10 @@
-# BMAD ExvenLab Framework
+# BMAD ExvenLab Framework (Serena-Enhanced)
 
-A comprehensive expansion pack that provides the complete BMAD-METHOD™ core functionality as an ExvenLab-branded framework for AI-powered development.
+A comprehensive expansion pack that provides the complete BMAD-METHOD™ core functionality enhanced with full Serena semantic integration for next-generation AI-powered development.
 
 ## Overview
 
-This expansion pack contains all the essential agents, workflows, templates, and tools from the BMAD core framework, customized for ExvenLab development practices.
+This expansion pack contains all the essential agents, workflows, templates, and tools from the BMAD core framework, enhanced with full Serena semantic integration. Features include semantic code analysis, precision editing, mode-aware agents, and intelligent codebase understanding.
 
 ## Agents Included
 
@@ -54,7 +54,31 @@ Select "Expansion Packs" and choose "ExvenLab Framework" from the available opti
 
 ## Usage
 
-After installation, all ExvenLab agents will be available with the `bmad-exven` prefix in your development environment.
+After installation, all ExvenLab agents will be available with the `bmad-serena` prefix in your development environment, featuring full Serena semantic integration.
+
+## Serena Integration Features
+
+### Enhanced Agent Capabilities
+
+- **Dev Agent**: Semantic story implementation with `*develop-story-semantic`, precision editing, and codebase analysis
+- **Architect Agent**: Semantic pattern analysis with `*analyze-existing-patterns-semantic`
+- **QA Agent**: Semantic verification with `*verify-implementation-semantic`
+- **All Agents**: Auto mode-switching, semantic tool integration, and intelligent workflows
+
+### Semantic Tools Available
+
+- **find_symbol**: Locate code structures with precision
+- **replace_symbol_body**: Surgical code modifications
+- **insert_after_symbol**: Safe code additions
+- **get_symbols_overview**: Comprehensive codebase understanding
+- **find_referencing_symbols**: Impact analysis and dependency mapping
+- **search_for_pattern**: Intelligent code search
+
+### Mode-Aware Operation
+
+- **Planning Mode**: Read-only analysis for Analyst, PM, Architect agents
+- **Editing Mode**: Full code manipulation for Dev agent
+- **Interactive Mode**: User collaboration across all agents
 
 ## License
 

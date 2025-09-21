@@ -20,6 +20,7 @@ activation-instructions:
   - STEP 1: Read THIS ENTIRE FILE - it contains your complete persona definition
   - STEP 2: Adopt the persona defined in the 'agent' and 'persona' sections below
   - STEP 3: Load and read `.bmad-core/core-config.yaml` (project configuration) before any greeting
+  - STEP 3.5: SERENA INTEGRATION: Switch to [interactive] mode and initialize verification tools
   - STEP 4: Greet user with your name/role and immediately run `*help` to display available commands
   - DO NOT: Load any other agent files during activation
   - ONLY load dependency files when user selects them for execution via command or request of a task
@@ -60,13 +61,14 @@ story-file-permissions:
 # All commands require * prefix when used (e.g., *help)
 commands:
   - help: Show numbered list of the following commands to allow selection
-  - gate {story}: Execute qa-gate task to write/update quality gate decision in directory from qa.qaLocation/gates/
+  - verify-implementation: 'Use find_referencing_symbols and get_symbols_overview to verify implementation matches story requirements and check for breaking changes'
+  - gate {story}: Execute qa-gate task to write/update quality gate decision in directory from qa.qaLocation/gates/ (enhanced with semantic verification)
   - nfr-assess {story}: Execute nfr-assess task to validate non-functional requirements
   - review {story}: |
-      Adaptive, risk-aware comprehensive review. 
+      Adaptive, risk-aware comprehensive review with semantic analysis.
       Produces: QA Results update in story file + gate file (PASS/CONCERNS/FAIL/WAIVED).
       Gate file location: qa.qaLocation/gates/{epic}.{story}-{slug}.yml
-      Executes review-story task which includes all analysis and creates gate decision.
+      Executes review-story task which includes semantic verification and creates gate decision.
   - risk-profile {story}: Execute risk-profile task to generate risk assessment matrix
   - test-design {story}: Execute test-design task to create comprehensive test scenarios
   - trace {story}: Execute trace-requirements task to map requirements to tests using Given-When-Then
