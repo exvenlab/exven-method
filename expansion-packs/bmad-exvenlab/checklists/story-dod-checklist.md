@@ -6,9 +6,19 @@
 
 Before marking a story as 'Review', please go through each item in this checklist. Report the status of each item (e.g., [x] Done, [ ] Not Done, [N/A] Not Applicable) and provide brief comments if necessary.
 
-[[LLM: INITIALIZATION INSTRUCTIONS - STORY DOD VALIDATION
+[[LLM: INITIALIZATION INSTRUCTIONS - STORY DOD VALIDATION WITH SERENA INTEGRATION
 
 This checklist is for DEVELOPER AGENTS to self-validate their work before marking a story complete.
+
+SERENA ENHANCEMENT: This checklist is enhanced with semantic code analysis capabilities for automated validation and verification.
+
+SERENA CAPABILITIES:
+
+- find_symbol: Verify implementation completeness and component existence
+- find_referencing_symbols: Validate integration points and dependencies
+- search_for_pattern: Code quality standards verification
+- get_symbols_overview: Implementation structure validation
+- think_about_collected_information: Enhanced analysis quality
 
 IMPORTANT: This is a self-assessment. Be honest about what's actually done vs what should be done. It's better to identify issues now than have them found in review.
 
@@ -19,6 +29,7 @@ EXECUTION APPROACH:
 3. Add brief comments explaining any [ ] or [N/A] items
 4. Be specific about what was actually implemented
 5. Flag any concerns or technical debt created
+6. USE SERENA TOOLS to validate implementation completeness and quality
 
 The goal is quality delivery, not just checking boxes.]]
 
@@ -26,13 +37,13 @@ The goal is quality delivery, not just checking boxes.]]
 
 1. **Requirements Met:**
 
-   [[LLM: Be specific - list each requirement and whether it's complete]]
+   [[LLM: Be specific - list each requirement and whether it's complete. Use find_symbol to verify all required components exist and are properly implemented.]]
    - [ ] All functional requirements specified in the story are implemented.
    - [ ] All acceptance criteria defined in the story are met.
 
 2. **Coding Standards & Project Structure:**
 
-   [[LLM: Code quality matters for maintainability. Check each item carefully]]
+   [[LLM: Code quality matters for maintainability. Check each item carefully. Use search_for_pattern to verify adherence to coding standards and patterns.]]
    - [ ] All new/modified code strictly adheres to `Operational Guidelines`.
    - [ ] All new/modified code aligns with `Project Structure` (file locations, naming, etc.).
    - [ ] Adherence to `Tech Stack` for technologies/versions used (if story introduces or modifies tech usage).
@@ -43,7 +54,7 @@ The goal is quality delivery, not just checking boxes.]]
 
 3. **Testing:**
 
-   [[LLM: Testing proves your code works. Be honest about test coverage]]
+   [[LLM: Testing proves your code works. Be honest about test coverage. Use find_symbol to verify test existence and get_symbols_overview to assess test structure.]]
    - [ ] All required unit tests as per the story and `Operational Guidelines` Testing Strategy are implemented.
    - [ ] All required integration tests (if applicable) as per the story and `Operational Guidelines` Testing Strategy are implemented.
    - [ ] All tests (unit, integration, E2E if applicable) pass successfully.
@@ -51,7 +62,7 @@ The goal is quality delivery, not just checking boxes.]]
 
 4. **Functionality & Verification:**
 
-   [[LLM: Did you actually run and test your code? Be specific about what you tested]]
+   [[LLM: Did you actually run and test your code? Be specific about what you tested. Use find_referencing_symbols to verify all integration points are working.]]
    - [ ] Functionality has been manually verified by the developer (e.g., running the app locally, checking UI, testing API endpoints).
    - [ ] Edge cases and potential error conditions considered and handled gracefully.
 

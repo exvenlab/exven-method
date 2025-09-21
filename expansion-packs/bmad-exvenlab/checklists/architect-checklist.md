@@ -4,7 +4,9 @@
 
 This checklist serves as a comprehensive framework for the Architect to validate the technical design and architecture before development execution. The Architect should systematically work through each item, ensuring the architecture is robust, scalable, secure, and aligned with the product requirements.
 
-[[LLM: INITIALIZATION INSTRUCTIONS - REQUIRED ARTIFACTS
+[[LLM: INITIALIZATION INSTRUCTIONS - REQUIRED ARTIFACTS WITH SERENA INTEGRATION
+
+SERENA ENHANCEMENT: This checklist is enhanced with semantic code analysis capabilities for automated validation and pattern verification.
 
 Before proceeding with this checklist, ensure you have access to:
 
@@ -14,6 +16,15 @@ Before proceeding with this checklist, ensure you have access to:
 4. Any system diagrams referenced in the architecture
 5. API documentation if available
 6. Technology stack details and version specifications
+7. SERENA TOOLS: Access to semantic code analysis for brownfield validation
+
+SERENA CAPABILITIES:
+
+- get_symbols_overview: Automated codebase structure analysis
+- find_symbol: Verify component/pattern existence in existing code
+- search_for_pattern: Pattern compliance validation
+- find_referencing_symbols: Dependency impact analysis
+- think_about_collected_information: Enhanced analysis quality
 
 IMPORTANT: If any required documents are missing or inaccessible, immediately ask the user for their location or content before proceeding.
 
@@ -37,12 +48,14 @@ For each section, you must:
 2. Evidence-Based - Cite specific sections or quotes from the documents when validating
 3. Critical Thinking - Question assumptions and identify gaps, not just confirm what's present
 4. Risk Assessment - Consider what could go wrong with each architectural decision
+5. SEMANTIC VALIDATION - Use Serena tools to validate architecture against existing codebase patterns
 
 EXECUTION MODE:
 Ask the user if they want to work through the checklist:
 
 - Section by section (interactive mode) - Review each section, present findings, get confirmation before proceeding
-- All at once (comprehensive mode) - Complete full analysis and present comprehensive report at end]]
+- All at once (comprehensive mode) - Complete full analysis and present comprehensive report at end
+- Semantic-enhanced mode - Use Serena tools for automated validation where applicable]]
 
 ## 1. REQUIREMENTS ALIGNMENT
 
@@ -110,7 +123,13 @@ Ask the user if they want to work through the checklist:
 
 ## 3. TECHNICAL STACK & DECISIONS
 
-[[LLM: Technology choices have long-term implications. For each technology decision, consider: Is this the simplest solution that could work? Are we over-engineering? Will this scale? What are the maintenance implications? Are there security vulnerabilities in the chosen versions? Verify that specific versions are defined, not ranges.]]
+[[LLM: Technology choices have long-term implications. For each technology decision, consider: Is this the simplest solution that could work? Are we over-engineering? Will this scale? What are the maintenance implications? Are there security vulnerabilities in the chosen versions? Verify that specific versions are defined, not ranges.
+
+SERENA ENHANCEMENT: For brownfield projects, use semantic analysis to validate technology choices:
+
+- get_symbols_overview: Analyze existing technology stack and patterns
+- find_symbol: Verify compatibility with existing components
+- search_for_pattern: Check alignment with current architectural patterns]]
 
 ### 3.1 Technology Selection
 
@@ -200,7 +219,13 @@ Ask the user if they want to work through the checklist:
 
 ## 5. RESILIENCE & OPERATIONAL READINESS
 
-[[LLM: Production systems fail in unexpected ways. As you review this section, think about Murphy's Law - what could go wrong? Consider real-world scenarios: What happens during peak load? How does the system behave when a critical service is down? Can the operations team diagnose issues at 3 AM? Look for specific resilience patterns, not just mentions of "error handling".]]
+[[LLM: Production systems fail in unexpected ways. As you review this section, think about Murphy's Law - what could go wrong? Consider real-world scenarios: What happens during peak load? How does the system behave when a critical service is down? Can the operations team diagnose issues at 3 AM? Look for specific resilience patterns, not just mentions of "error handling".
+
+SERENA ENHANCEMENT: For resilience validation:
+
+- search_for_pattern: Identify existing error handling and resilience patterns
+- find_symbol: Verify monitoring and alerting components
+- find_referencing_symbols: Analyze system dependency chains]]
 
 ### 5.1 Error Handling & Resilience
 
@@ -236,7 +261,13 @@ Ask the user if they want to work through the checklist:
 
 ## 6. SECURITY & COMPLIANCE
 
-[[LLM: Security is not optional. Review this section with a hacker's mindset - how could someone exploit this system? Also consider compliance: Are there industry-specific regulations that apply? GDPR? HIPAA? PCI? Ensure the architecture addresses these proactively. Look for specific security controls, not just general statements.]]
+[[LLM: Security is not optional. Review this section with a hacker's mindset - how could someone exploit this system? Also consider compliance: Are there industry-specific regulations that apply? GDPR? HIPAA? PCI? Ensure the architecture addresses these proactively. Look for specific security controls, not just general statements.
+
+SERENA ENHANCEMENT: For security validation:
+
+- search_for_pattern: Identify existing security patterns and implementations
+- find_symbol: Verify security middleware and authentication components
+- find_referencing_symbols: Analyze security integration points]]
 
 ### 6.1 Authentication & Authorization
 
