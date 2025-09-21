@@ -15,8 +15,54 @@ Create a requirements traceability matrix that ensures every acceptance criterio
 - Story file with clear acceptance criteria
 - Access to test files or test specifications
 - Understanding of the implementation
+- Serena MCP server active with [interactive] mode
+- Target codebase available for semantic analysis
 
 ## Traceability Process
+
+### 0. Semantic Code Analysis (Enhanced with Serena)
+
+Before manual traceability analysis, use semantic tools to understand implementation scope:
+
+**Implementation Discovery:**
+
+```
+Use find_symbol to locate:
+- Core implementation functions referenced in story
+- API endpoints mentioned in acceptance criteria
+- Data models and services involved
+- User interface components affected
+```
+
+**Dependency Analysis:**
+
+```
+Use find_referencing_symbols to map:
+- Which components depend on modified code
+- Test files that already reference implementation
+- Integration points that might be affected
+- Cross-cutting concerns (auth, logging, validation)
+```
+
+**Test Coverage Discovery:**
+
+```
+Use search_for_pattern to identify:
+- Existing test files that might cover requirements
+- Test patterns and naming conventions in project
+- Mock/stub configurations for dependencies
+- Test utilities and helpers available
+```
+
+**Impact Assessment:**
+
+```
+Use get_symbols_overview to understand:
+- Test suite structure and organization
+- Test coverage patterns in similar features
+- Testing frameworks and utilities in use
+- Architecture patterns affecting testability
+```
 
 ### 1. Extract Requirements
 
@@ -51,17 +97,28 @@ test_mappings:
     coverage: integration
 ```
 
-### 3. Coverage Analysis
+### 3. Coverage Analysis (Enhanced with Semantic Intelligence)
 
-Evaluate coverage for each requirement:
+Evaluate coverage for each requirement using both manual analysis and semantic insights:
 
 **Coverage Levels:**
 
-- `full`: Requirement completely tested
-- `partial`: Some aspects tested, gaps exist
-- `none`: No test coverage found
+- `full`: Requirement completely tested (verified by code analysis)
+- `partial`: Some aspects tested, gaps exist (cross-referenced with dependencies)
+- `none`: No test coverage found (confirmed by semantic search)
 - `integration`: Covered in integration/e2e tests only
 - `unit`: Covered in unit tests only
+- `semantic-verified`: Coverage confirmed through find_referencing_symbols analysis
+
+**Semantic Coverage Validation:**
+
+```
+For each identified test:
+- Verify test actually calls implementation using find_referencing_symbols
+- Check if test covers all code paths identified in semantic analysis
+- Validate test mocks align with actual dependencies found
+- Confirm test data models match implementation schemas
+```
 
 ### 4. Gap Identification
 

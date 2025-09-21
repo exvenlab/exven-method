@@ -68,6 +68,55 @@ sections:
     owner: scrum-master
     editors: [scrum-master, dev-agent]
 
+  - id: semantic-analysis
+    title: Semantic Analysis
+    instruction: |
+      Semantic validation results using Serena MCP tools (populated by SM/PO agent):
+      - Use validate-story-semantic task to ensure technical accuracy
+      - Verify all referenced code structures actually exist
+      - Identify implementation dependencies and conflicts
+      - Document existing patterns and reusable components
+    owner: scrum-master
+    editors: [scrum-master, po-agent]
+    sections:
+      - id: technical-validation
+        title: Technical Validation Status
+        type: choice
+        choices: [Not Validated, Validated - Pass, Validated - Concerns, Validated - Fail]
+        instruction: Result of semantic validation using validate-story-semantic task
+        owner: scrum-master
+        editors: [scrum-master, po-agent]
+
+      - id: code-references-verified
+        title: Code References Verified
+        instruction: |
+          List of code structures referenced in story that have been verified to exist:
+          - APIs, classes, functions mentioned in acceptance criteria
+          - Data models and services involved
+          - UI components and integration points
+        owner: scrum-master
+        editors: [scrum-master, po-agent]
+
+      - id: implementation-dependencies
+        title: Implementation Dependencies
+        instruction: |
+          Dependencies discovered through find_referencing_symbols analysis:
+          - Prerequisites that must be completed first
+          - Cross-feature dependencies and potential conflicts
+          - Critical integration points
+        owner: scrum-master
+        editors: [scrum-master, po-agent]
+
+      - id: reusable-components
+        title: Reusable Components Identified
+        instruction: |
+          Existing components found through semantic analysis that can be reused:
+          - Similar implementations for reference
+          - Available utilities and frameworks
+          - Established patterns to follow
+        owner: scrum-master
+        editors: [scrum-master, po-agent]
+
   - id: dev-notes
     title: Dev Notes
     instruction: |
@@ -76,6 +125,7 @@ sections:
       - If known add Relevant Source Tree info that relates to this story
       - If there were important notes from previous story that are relevant to this one, include them here
       - Put enough information in this section so that the dev agent should NEVER need to read the architecture documents, these notes along with the tasks and subtasks must give the Dev Agent the complete context it needs to comprehend with the least amount of overhead the information to complete the story, meeting all AC and completing all tasks+subtasks
+      - ENHANCED: Include insights from semantic analysis section above
     elicit: true
     owner: scrum-master
     editors: [scrum-master]
@@ -88,6 +138,7 @@ sections:
           - Test standards
           - Testing frameworks and patterns to use
           - Any specific testing requirements for this story
+          - ENHANCED: Include test patterns discovered through semantic analysis
         elicit: true
         owner: scrum-master
         editors: [scrum-master]
