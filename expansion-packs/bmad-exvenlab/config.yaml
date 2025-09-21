@@ -1,0 +1,11 @@
+# <!-- Powered by BMAD™ Core -->
+name: bmad-exvenlab
+version: 1.0.0
+short-title: ExvenLab Framework
+description: >-
+  Complete ExvenLab AI-powered development framework providing all core BMAD
+  agents, workflows, and tools for comprehensive software development.
+  Includes specialized agents for analysis, development, architecture,
+  project management, and quality assurance with full workflow integration.
+author: ExvenLab
+slashPrefix: bmad-exven
