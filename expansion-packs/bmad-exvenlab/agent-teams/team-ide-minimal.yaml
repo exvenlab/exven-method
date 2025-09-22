@@ -8,4 +8,19 @@ agents:
   - sm
   - dev
   - qa
+# Serena MCP Integration
+serena_team_coordination:
+  shared_memory: true
+  mode_coordination:
+    po: "interactive → editing"
+    sm: "interactive → analysis"
+    dev: "analysis → editing"
+    qa: "analysis → editing"
+  handoff_optimization:
+    sm_to_dev:
+      - "SM uses mcp__serena__write_memory to store story context"
+      - "Dev uses mcp__serena__read_memory for story startup"
+    dev_to_qa:
+      - "Dev uses memory to store implementation decisions"
+      - "QA uses memory to understand change context"
 workflows: null

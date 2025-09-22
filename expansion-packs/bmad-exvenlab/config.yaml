@@ -14,10 +14,17 @@ architecture:
   architectureSharded: true
   architectureShardedLocation: docs/architecture
 customTechnicalDocuments: null
-devLoadAlwaysFiles:
-  - docs/architecture/coding-standards.md
-  - docs/architecture/tech-stack.md
-  - docs/architecture/source-tree.md
+# Serena MCP Integration
+serena:
+  default_mode: "editing"
+  memory_persistence: true
+  pure_integration: true
+
+# Serena-optimized startup symbols (replaces devLoadAlwaysFiles)
+devSerenaStartup:
+  - symbol: "docs/architecture/coding-standards.md#main-patterns"
+  - symbol: "docs/architecture/tech-stack.md#current-stack"
+  - symbol: "docs/architecture/source-tree.md#structure-overview"
 devDebugLog: .ai/debug-log.md
 devStoryLocation: docs/stories
 slashPrefix: BMad

@@ -10,6 +10,17 @@ agents:
   - ux-expert
   - architect
   - po
+# Serena MCP Integration
+serena_team_coordination:
+  shared_memory: true
+  mode_coordination:
+    analyst: "interactive → analysis"
+    pm: "interactive → editing"
+    architect: "analysis → editing"
+    orchestrator: "interactive"
+  handoff_optimization:
+    memory_persistence: true
+    context_sharing: true
 workflows:
   - brownfield-fullstack.yaml
   - brownfield-service.yaml

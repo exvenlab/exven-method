@@ -10,8 +10,8 @@ To comprehensively validate a story draft before implementation begins, ensuring
 
 ### 0. Load Core Configuration and Inputs
 
-- Load `.bmad-core/core-config.yaml`
-- If the file does not exist, HALT and inform the user: "core-config.yaml not found. This file is required for story validation."
+- Load `.bmad-core/config.yaml`
+- If the file does not exist, HALT and inform the user: "config.yaml not found. This file is required for story validation."
 - Extract key configurations: `devStoryLocation`, `prd.*`, `architecture.*`
 - Identify and load the following inputs:
   - **Story file**: The drafted story to validate (provided by user or discovered in `devStoryLocation`)

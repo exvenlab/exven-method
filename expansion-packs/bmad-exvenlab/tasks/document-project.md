@@ -42,13 +42,13 @@ Based on their response:
 - If they choose option 1-3: Use that context to focus documentation
 - If they choose option 4 or decline: Proceed with comprehensive analysis below
 
-Begin by conducting analysis of the existing project. Use available tools to:
+Begin by conducting analysis of the existing project. Use Serena tools for efficient discovery:
 
-1. **Project Structure Discovery**: Examine the root directory structure, identify main folders, and understand the overall organization
-2. **Technology Stack Identification**: Look for package.json, requirements.txt, Cargo.toml, pom.xml, etc. to identify languages, frameworks, and dependencies
-3. **Build System Analysis**: Find build scripts, CI/CD configurations, and development commands
-4. **Existing Documentation Review**: Check for README files, docs folders, and any existing documentation
-5. **Code Pattern Analysis**: Sample key files to understand coding patterns, naming conventions, and architectural approaches
+1. **Project Structure Discovery**: Use mcp**serena**list_dir with recursive=true to examine directory structure and organization
+2. **Technology Stack Identification**: Use mcp**serena**search_for_pattern to find package.json, requirements.txt, Cargo.toml, pom.xml, etc. to identify languages, frameworks, and dependencies
+3. **Build System Analysis**: Use mcp**serena**search_for_pattern to find build scripts, CI/CD configurations, and development commands
+4. **Existing Documentation Review**: Use mcp**serena**get_symbols_overview to analyze README files, docs folders, and existing documentation
+5. **Code Pattern Analysis**: Use mcp**serena**find_symbol to sample key files and understand coding patterns, naming conventions, and architectural approaches
 
 Ask the user these elicitation questions to better understand their needs:
 

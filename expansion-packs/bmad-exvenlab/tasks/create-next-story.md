@@ -10,16 +10,16 @@ To identify the next logical story based on project progress and epic definition
 
 ### 0. Load Core Configuration and Check Workflow
 
-- Load `{root}/core-config.yaml` from the project root
-- If the file does not exist, HALT and inform the user: "core-config.yaml not found. This file is required for story creation. You can either: 1) Copy it from GITHUB bmad-core/core-config.yaml and configure it for your project OR 2) Run the BMad installer against your project to upgrade and add the file automatically. Please add and configure core-config.yaml before proceeding."
+- Load config.yaml using mcp**serena**find_symbol for configuration symbols
+- If the file does not exist, HALT and inform the user: "config.yaml not found. This file is required for story creation. You can either: 1) Copy it from GITHUB bmad-core/config.yaml and configure it for your project OR 2) Run the BMad installer against your project to upgrade and add the file automatically. Please add and configure config.yaml before proceeding."
 - Extract key configurations: `devStoryLocation`, `prd.*`, `architecture.*`, `workflow.*`
 
 ### 1. Identify Next Story for Preparation
 
 #### 1.1 Locate Epic Files and Review Existing Stories
 
-- Based on `prdSharded` from config, locate epic files (sharded location/pattern or monolithic PRD sections)
-- If `devStoryLocation` has story files, load the highest `{epicNum}.{storyNum}.story.md` file
+- Based on `prdSharded` from config, use mcp**serena**search_for_pattern to locate epic files (sharded location/pattern or monolithic PRD sections)
+- If `devStoryLocation` has story files, use mcp**serena**get_symbols_overview to find the highest `{epicNum}.{storyNum}.story.md` file
 - **If highest story exists:**
   - Verify status is 'Done'. If not, alert user: "ALERT: Found incomplete story! File: {lastEpicNum}.{lastStoryNum}.story.md Status: [current status] You should fix this story first, but would you like to accept risk & override to create the next story in draft?"
   - If proceeding, select next sequential story in the current epic
@@ -46,13 +46,13 @@ To identify the next logical story based on project progress and epic definition
 
 #### 3.2 Read Architecture Documents Based on Story Type
 
-**For ALL Stories:** tech-stack.md, unified-project-structure.md, coding-standards.md, testing-strategy.md
+**For ALL Stories:** Use mcp**serena**find_symbol to read relevant symbols from tech-stack.md, unified-project-structure.md, coding-standards.md, testing-strategy.md
 
-**For Backend/API Stories, additionally:** data-models.md, database-schema.md, backend-architecture.md, rest-api-spec.md, external-apis.md
+**For Backend/API Stories, additionally:** Use mcp**serena**find_symbol for data-models.md, database-schema.md, backend-architecture.md, rest-api-spec.md, external-apis.md
 
-**For Frontend/UI Stories, additionally:** frontend-architecture.md, components.md, core-workflows.md, data-models.md
+**For Frontend/UI Stories, additionally:** Use mcp**serena**find_symbol for frontend-architecture.md, components.md, core-workflows.md, data-models.md
 
-**For Full-Stack Stories:** Read both Backend and Frontend sections above
+**For Full-Stack Stories:** Read both Backend and Frontend sections above using targeted symbol reading
 
 #### 3.3 Extract Story-Specific Technical Details
 
