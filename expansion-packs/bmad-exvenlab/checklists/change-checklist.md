@@ -6,18 +6,9 @@
 
 **Instructions:** Review each item with the user. Mark `[x]` for completed/confirmed, `[N/A]` if not applicable, or add notes for discussion points.
 
-[[LLM: INITIALIZATION INSTRUCTIONS - CHANGE NAVIGATION WITH SERENA INTEGRATION
+[[LLM: INITIALIZATION INSTRUCTIONS - CHANGE NAVIGATION
 
 Changes during development are inevitable, but how we handle them determines project success or failure.
-
-SERENA ENHANCEMENT: This checklist is enhanced with semantic code analysis capabilities for automated change impact analysis.
-
-SERENA CAPABILITIES:
-
-- find_referencing_symbols: Automated dependency impact analysis
-- search_for_pattern: Identify affected code patterns
-- get_symbols_overview: System-wide change impact assessment
-- think_about_collected_information: Enhanced analysis quality
 
 Before proceeding, understand:
 
@@ -25,7 +16,6 @@ Before proceeding, understand:
 2. Minor adjustments within a story don't require this process
 3. The goal is to minimize wasted work while adapting to new realities
 4. User buy-in is critical - they must understand and approve changes
-5. SEMANTIC ANALYSIS can provide data-driven change impact assessment
 
 Required context:
 
@@ -33,7 +23,6 @@ Required context:
 - Current project state (completed stories, current epic)
 - Access to PRD, architecture, and other key documents
 - Understanding of remaining work planned
-- SERENA TOOLS for automated impact analysis
 
 APPROACH:
 This is an interactive process with the user. Work through each section together, discussing implications and options. The user makes final decisions, but provide expert guidance on technical feasibility and impact.
@@ -72,13 +61,7 @@ Be specific and factual, not blame-oriented.]]
 3. Are we creating or eliminating dependencies?
 4. Does the epic sequence need reordering?
 
-Think about both immediate and downstream effects.
-
-SERENA ENHANCEMENT: Use semantic analysis for impact assessment:
-
-- find_referencing_symbols: Analyze code dependencies affected by change
-- search_for_pattern: Identify patterns that need modification
-- get_symbols_overview: Understand system-wide impact]]
+Think about both immediate and downstream effects.]]
 
 - [ ] **Analyze Current Epic:**
   - [ ] Can the current epic containing the trigger story still be completed?

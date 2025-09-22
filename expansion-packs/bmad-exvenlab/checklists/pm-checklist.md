@@ -4,16 +4,7 @@
 
 This checklist serves as a comprehensive framework to ensure the Product Requirements Document (PRD) and Epic definitions are complete, well-structured, and appropriately scoped for MVP development. The PM should systematically work through each item during the product definition process.
 
-[[LLM: INITIALIZATION INSTRUCTIONS - PM CHECKLIST WITH SERENA INTEGRATION
-
-SERENA ENHANCEMENT: This checklist is enhanced with semantic code analysis capabilities for technical feasibility validation.
-
-SERENA CAPABILITIES:
-
-- get_symbols_overview: Validate technical feasibility against existing codebase
-- search_for_pattern: Verify requirements align with existing patterns
-- find_symbol: Check referenced components and APIs exist
-- think_about_collected_information: Enhanced analysis quality
+[[LLM: INITIALIZATION INSTRUCTIONS - PM CHECKLIST
 
 Before proceeding with this checklist, ensure you have access to:
 
@@ -21,7 +12,6 @@ Before proceeding with this checklist, ensure you have access to:
 2. Any user research, market analysis, or competitive analysis documents
 3. Business goals and strategy documents
 4. Any existing epic definitions or user stories
-5. SERENA TOOLS for technical feasibility analysis
 
 IMPORTANT: If the PRD is missing, immediately ask the user for its location or content before proceeding.
 
@@ -32,14 +22,12 @@ VALIDATION APPROACH:
 3. Clarity - Requirements should be unambiguous and testable
 4. Completeness - All aspects of the product vision are covered
 5. Feasibility - Requirements are technically achievable
-6. SEMANTIC VALIDATION - Requirements align with existing system capabilities
 
 EXECUTION MODE:
 Ask the user if they want to work through the checklist:
 
 - Section by section (interactive mode) - Review each section, present findings, get confirmation before proceeding
-- All at once (comprehensive mode) - Complete full analysis and present comprehensive report at end
-- Semantic-enhanced mode - Use Serena tools for technical feasibility validation]]
+- All at once (comprehensive mode) - Complete full analysis and present comprehensive report at end]]
 
 ## 1. PROBLEM DEFINITION & CONTEXT
 

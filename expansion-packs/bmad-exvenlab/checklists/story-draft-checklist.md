@@ -4,16 +4,7 @@
 
 The Scrum Master should use this checklist to validate that each story contains sufficient context for a developer agent to implement it successfully, while assuming the dev agent has reasonable capabilities to figure things out.
 
-[[LLM: INITIALIZATION INSTRUCTIONS - STORY DRAFT VALIDATION WITH SERENA INTEGRATION
-
-SERENA ENHANCEMENT: This checklist is enhanced with semantic code analysis capabilities for technical feasibility validation before development begins.
-
-SERENA CAPABILITIES:
-
-- get_symbols_overview: Validate referenced components exist in codebase
-- find_symbol: Verify technical feasibility of story requirements
-- search_for_pattern: Check consistency with existing patterns
-- think_about_collected_information: Enhanced analysis quality
+[[LLM: INITIALIZATION INSTRUCTIONS - STORY DRAFT VALIDATION
 
 Before proceeding with this checklist, ensure you have access to:
 
@@ -21,7 +12,6 @@ Before proceeding with this checklist, ensure you have access to:
 2. The parent epic context
 3. Any referenced architecture or design documents
 4. Previous related stories if this builds on prior work
-5. SERENA TOOLS for technical feasibility validation
 
 IMPORTANT: This checklist validates individual stories BEFORE implementation begins.
 
@@ -32,7 +22,6 @@ VALIDATION PRINCIPLES:
 3. Guidance - Key technical decisions and patterns to follow
 4. Testability - How to verify the implementation works
 5. Self-Contained - Most info needed is in the story itself
-6. SEMANTIC VALIDATION - Technical requirements align with existing codebase
 
 REMEMBER: We assume competent developer agents who can:
 
