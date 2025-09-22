@@ -343,3 +343,77 @@ Apply the advanced elicitation task after major sections to refine based on user
 - Documents technical debt, workarounds, and constraints honestly
 - For brownfield projects with PRD: Provides clear enhancement impact analysis
 - The goal is PRACTICAL documentation for AI agents doing real work
+
+## ✅ Project Documentation Complete
+
+**Document Created**: `docs/brownfield-architecture.md` (or project-specific name)
+**Scope**: {{enhancement_scope_or_full_system}}
+**Analysis Depth**: {{technical_debt_documented}} + {{integration_points}} + {{constraints}}
+
+### 🎯 What's Next?
+
+**Brownfield Enhancement Workflow:**
+
+**Next Phase: Requirements & Planning**
+
+**Option A: Single Story Enhancement**
+
+```
+@pm
+Use task: brownfield-create-story
+```
+
+For small enhancements (< 4 hours work). Creates ready-to-implement story.
+
+**Option B: Small Feature (1-3 Stories)**
+
+```
+@pm
+Use task: brownfield-create-epic
+```
+
+For focused features requiring multiple stories.
+
+**Option C: Major Enhancement**
+
+```
+@pm
+Create brownfield PRD using brownfield-prd-tmpl
+```
+
+For complex enhancements requiring comprehensive planning.
+
+### 📋 Architecture Integration
+
+**Documentation Ready For:**
+
+- ✅ **Impact Analysis**: Technical debt and constraints documented
+- ✅ **Integration Planning**: Existing system patterns identified
+- ✅ **Risk Assessment**: Workarounds and gotchas captured
+- ✅ **Development Context**: Ready for story/epic creation
+
+### 🔄 Expected Flow
+
+**Based on Enhancement Scope:**
+
+1. **Single Story**: Document → Story → Development
+2. **Small Feature**: Document → Epic → Stories → Development
+3. **Major Enhancement**: Document → PRD → Architecture → Stories → Development
+
+### 📁 File Management
+
+**Save Document**:
+
+```
+Copy final document to: docs/brownfield-architecture.md
+```
+
+**Reference Document** in next phase:
+
+- PM agents will use this for context during story/epic/PRD creation
+- Avoids re-analysis of technical constraints
+- Provides integration guidance for development
+
+---
+
+**❓ Need guidance?** Run: `workflow-navigator.md` or ask "What should I do next?"

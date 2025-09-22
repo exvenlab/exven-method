@@ -314,3 +314,71 @@ After review:
 3. Recommend status: "Ready for Done" or "Changes Required" (owner decides)
 4. If files were modified, list them in QA Results and ask Dev to update File List
 5. Always provide constructive feedback and actionable recommendations
+
+## ✅ QA Review Complete
+
+**Story**: {epic}.{story} - {story_title}
+**QA Gate**: {PASS/CONCERNS/FAIL/WAIVED}
+**Quality Score**: {score}/100
+
+### 🔄 What's Next?
+
+**Based on QA Results:**
+
+**If Status: PASS** ✅
+
+```
+Story status → "Done"
+```
+
+**Next Action**: Continue development workflow
+
+**If Status: CONCERNS** ⚠️
+
+```
+@dev
+Address remaining checklist items, then return for final approval
+```
+
+**Items to Address**: [See unchecked items in QA Results]
+
+**If Status: FAIL** ❌
+
+```
+@dev
+Critical issues require fixes before proceeding
+```
+
+**Critical Issues**: [See high-priority items in QA Results]
+
+### 📊 Epic Progress Check
+
+Use mcp**serena**search_for_pattern to check epic status:
+
+**If More Stories in Epic:**
+
+```
+@sm
+*draft
+```
+
+Continue with next story in Epic {epic}
+
+**If Epic Complete:**
+🎉 **Epic {epic} Complete!** All stories are Done.
+
+**Options:**
+
+1. **Next Epic**: `@sm *draft` (Epic {epic + 1})
+2. **Retrospective**: `@po` → epic retrospective (optional)
+3. **Project Complete**: All epics finished
+
+### 🔄 Development Cycle Status
+
+**Current Story**: ✅ Complete
+**Epic Progress**: {completed_stories}/{total_stories} stories Done
+**Project Progress**: {completed_epics}/{total_epics} epics complete
+
+---
+
+**❓ Need guidance?** Run: `workflow-navigator.md` or ask "What should I do next?"

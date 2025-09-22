@@ -25,6 +25,16 @@ devSerenaStartup:
   - symbol: "docs/architecture/coding-standards.md#main-patterns"
   - symbol: "docs/architecture/tech-stack.md#current-stack"
   - symbol: "docs/architecture/source-tree.md#structure-overview"
+
+# Workflow orchestration configuration
+workflow_tracking:
+  enabled: true
+  auto_navigate: true
+  progress_memory: true
+  transition_prompts: true
+  state_detection: true
+  completion_guidance: true
+
 devDebugLog: .ai/debug-log.md
 devStoryLocation: docs/stories
 slashPrefix: BMad

@@ -111,4 +111,50 @@ ALWAYS cite source documents: `[Source: architecture/{filename}.md#{section}]`
   - Key technical components included from architecture docs
   - Any deviations or conflicts noted between epic and architecture
   - Checklist Results
-  - Next steps: For Complex stories, suggest the user carefully review the story draft and also optionally have the PO run the task `{root}/tasks/validate-next-story`
+
+## ✅ Story Creation Complete
+
+**Story Created**: `{devStoryLocation}/{epicNum}.{storyNum}.story.md`
+**Status**: Draft
+**Epic Progress**: Story {storyNum} of Epic {epicNum}
+
+### 🎯 What's Next?
+
+**Development Workflow Options:**
+
+**Option A: Begin Implementation (Recommended)**
+
+```
+@dev
+*develop-story
+```
+
+Story is ready for development. Dev agent will implement all tasks and mark as "Review" when complete.
+
+**Option B: Review Story First (Complex Stories)**
+
+```
+@po
+Run task: validate-next-story
+```
+
+Optional validation for complex stories before development begins.
+
+### 📊 Epic Status
+
+Use mcp**serena**search_for_pattern to check remaining stories in Epic {epicNum}:
+
+- **If more stories needed**: After dev completes this story, return to @sm for next story
+- **If epic complete**: After dev completes this story, consider epic retrospective
+
+### 🔄 Development Cycle
+
+**Expected Flow:**
+
+1. **Dev Implementation** → Story status: "Review"
+2. **QA Review** (Optional) → Story status: "Done"
+3. **Next Story** → Return to @sm \*draft OR Epic complete
+
+---
+
+**❓ Need guidance?** Run: `{root}/tasks/workflow-navigator.md` or ask "What should I do next?"

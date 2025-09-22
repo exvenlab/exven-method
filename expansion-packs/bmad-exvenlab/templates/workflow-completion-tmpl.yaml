@@ -1,0 +1,241 @@
+# <!-- Powered by BMAD™ Core -->
+# Workflow Completion Template
+# Include this template in task completion sections for workflow orchestration
+
+workflow_completion:
+  # Basic completion pattern for all tasks
+  standard_completion: |
+    ## ✅ Task Complete: {{task_name}}
+
+    **Artifact Created**: {{artifact_name}}
+    **Status**: {{artifact_status}}
+    **Location**: {{artifact_location}}
+
+    ### 🔄 What's Next?
+
+    **Current Workflow**: {{workflow_type}} ({{workflow_phase}})
+    **Progress**: {{completion_percentage}}%
+
+    **Immediate Next Step**:
+    ```
+    {{next_action_command}}
+    ```
+
+    **Context**: {{next_step_explanation}}
+
+    ---
+
+    **❓ Need guidance?** Run: `workflow-navigator.md` or ask "What should I do next?"
+
+  # Planning phase completions (Analyst, PM, Architect)
+  planning_phase_completion: |
+    ## ✅ Planning Artifact Complete: {{artifact_name}}
+
+    **Document Created**: `{{file_path}}`
+    **Phase**: {{workflow_phase}} Complete
+
+    ### 📋 Required Actions
+
+    1. **Save Document**: Copy `{{artifact_name}}` to `docs/{{artifact_name}}`
+    2. **Next Agent**: {{next_agent_name}}
+    3. **Next Action**: {{next_action_description}}
+
+    ### 🎯 Ready-to-Use Transition
+
+    **Tell {{next_agent_name}}**:
+    ```
+    {{handoff_prompt}}
+    ```
+
+    **Expected Output**: {{expected_next_artifact}}
+
+    ---
+
+    **Progress Tracking**: {{current_step}} of {{total_steps}} planning steps complete
+
+  # Development phase completions (SM, Dev, QA)
+  development_phase_completion: |
+    ## ✅ Development Task Complete: {{task_name}}
+
+    **Story**: {{story_id}} - {{story_title}}
+    **Status**: {{story_status}}
+    **Files Modified**: {{modified_files_count}} files
+
+    ### 🔄 Development Cycle Status
+
+    **Current Story**: {{current_story_progress}}
+    **Epic Progress**: {{epic_progress}}
+    **Overall Progress**: {{overall_progress}}
+
+    ### 🎯 Next Action Required
+
+    {{#if next_story_needed}}
+    **Create Next Story**:
+    ```
+    @sm
+    *draft
+    ```
+    {{/if}}
+
+    {{#if dev_implementation_needed}}
+    **Begin Implementation**:
+    ```
+    @dev
+    *develop-story
+    ```
+    {{/if}}
+
+    {{#if qa_review_needed}}
+    **Request QA Review**:
+    ```
+    @qa
+    *review {{story_id}}
+    ```
+    {{/if}}
+
+    {{#if epic_complete}}
+    **🎉 Epic Complete!**
+    All stories in Epic {{epic_number}} are Done.
+
+    **Options**:
+    1. **Next Epic**: Start Epic {{next_epic_number}}
+    2. **Retrospective**: Run epic retrospective (optional)
+    3. **Project Complete**: All epics finished
+    {{/if}}
+
+  # Single task completions (Brownfield quick tasks)
+  single_task_completion: |
+    ## ✅ {{task_type}} Complete
+
+    **Enhancement**: {{enhancement_description}}
+    **Scope**: {{enhancement_scope}}
+
+    ### 🎯 Implementation Ready
+
+    **Next Step**: Begin development
+    ```
+    @dev
+    *develop-story
+    ```
+
+    **Story Location**: `{{story_file_path}}`
+    **Status**: Ready for Implementation
+
+    ---
+
+    **🔄 After Development**: Use `@qa *review` for quality review
+
+  # Validation and review completions
+  validation_completion: |
+    ## ✅ {{validation_type}} Complete
+
+    **Status**: {{validation_result}}
+    **Issues Found**: {{issues_count}}
+
+    {{#if issues_found}}
+    ### ⚠️ Issues Require Attention
+
+    **Return to**: {{responsible_agent}}
+    **Action Required**: {{required_fixes}}
+
+    **After Fixes**: Re-run validation
+    {{/if}}
+
+    {{#unless issues_found}}
+    ### ✅ Validation Passed
+
+    **Next Phase**: {{next_phase}}
+    **Action**: {{next_action}}
+    ```
+    {{next_command}}
+    ```
+    {{/unless}}
+
+  # Epic and project completions
+  epic_completion: |
+    ## 🎉 Epic {{epic_number}} Complete!
+
+    **Stories Completed**: {{completed_stories_count}}
+    **Total Development Time**: {{epic_duration}}
+    **Quality Gates**: All Passed
+
+    ### 🔄 Project Status
+
+    **Epics Remaining**: {{remaining_epics_count}}
+    **Overall Progress**: {{project_completion_percentage}}%
+
+    {{#if more_epics}}
+    ### 🎯 Continue to Next Epic
+
+    **Epic {{next_epic_number}}**: {{next_epic_title}}
+    **Stories**: {{next_epic_story_count}}
+
+    **Start Next Epic**:
+    ```
+    @sm
+    *draft
+    ```
+    {{/if}}
+
+    {{#unless more_epics}}
+    ### 🏆 Project Development Complete!
+
+    **All Epics**: ✅ Complete
+    **All Stories**: ✅ Implemented and Reviewed
+    **Quality Gates**: ✅ All Passed
+
+    **Optional Next Steps**:
+    1. **Project Retrospective**: Document learnings
+    2. **Deployment**: Prepare for production
+    3. **Documentation**: Final documentation updates
+    {{/unless}}
+
+# Quick reference commands for common transitions
+transition_commands:
+  planning_to_development: |
+    Documents complete → Ready for development
+    Next: @po → shard docs/prd.md
+    Then: @sm → *draft
+
+  story_created_to_implementation: |
+    Story created → Ready for development
+    Next: @dev → *develop-story
+
+  implementation_to_review: |
+    Development complete → Ready for QA
+    Next: @qa → *review {{story_id}}
+
+  review_to_next_story: |
+    Story complete → Continue development
+    Next: @sm → *draft
+
+  epic_complete_to_next: |
+    Epic complete → Start next epic
+    Next: @sm → *draft (Epic {{next_epic_number}})
+
+# Workflow phase indicators for automatic detection
+phase_indicators:
+  planning:
+    files_present: ["project-brief.md", "prd.md"]
+    files_missing: ["docs/prd/", "docs/stories/"]
+    next_phase: "sharding"
+
+  sharding:
+    files_present: ["docs/prd.md", "docs/architecture.md"]
+    files_missing: ["docs/prd/", "docs/architecture/"]
+    next_phase: "story_creation"
+
+  story_creation:
+    files_present: ["docs/prd/", "docs/architecture/"]
+    files_missing: ["docs/stories/"]
+    next_phase: "development"
+
+  development:
+    files_present: ["docs/stories/"]
+    story_status: ["Draft", "Approved", "Review"]
+    next_phase: "review_or_next_story"
+
+  completion:
+    files_present: ["docs/stories/"]
+    story_status: ["Done"]
+    next_phase: "project_complete"

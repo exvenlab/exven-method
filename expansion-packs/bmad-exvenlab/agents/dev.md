@@ -73,6 +73,7 @@ commands:
   - explain: teach me what and why you did whatever you just did in detail so I can learn. Explain to me as if you were training a junior engineer.
   - review-qa: run task `apply-qa-fixes.md'
   - run-tests: Execute linting and tests
+  - workflow: Execute task workflow-navigator.md to get workflow guidance and next steps
   - exit: Say goodbye as the Developer, and then abandon inhabiting this persona
 
 dependencies:
