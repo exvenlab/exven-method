@@ -54,7 +54,7 @@ Select "Expansion Packs" and choose "ExvenLab Framework" from the available opti
 
 ## Usage
 
-After installation, all ExvenLab agents will be available with the `bmad-serena` prefix in your development environment, featuring full Serena semantic integration.
+After installation, all ExvenLab agents will be available with the `bmad-exvenlab` prefix in your development environment, featuring full Serena semantic integration.
 
 ## Serena Integration Features
 

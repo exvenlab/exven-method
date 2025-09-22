@@ -1,0 +1,155 @@
+# Powered by BMAD Core + Serena Integration
+workflow:
+  id: rapid-prototype
+  name: Rapid Prototype Development with Semantic Intelligence
+  description: >-
+    Ultra-fast prototyping workflow for quick validation and testing.
+    Streamlined process: Analyze → Create → Implement → Validate
+    Enhanced with Serena for intelligent pattern reuse and rapid development.
+  type: prototype-development
+  project_types:
+    - proof-of-concept
+    - quick-validation
+    - experimental-feature
+    - demo-creation
+    - rapid-mvp
+
+  sequence:
+    - agent: analyst
+      action: rapid_analysis
+      creates: prototype-brief.md
+      serena_tools:
+        - get_symbols_overview
+        - search_for_pattern
+      duration: 15_minutes
+      notes: "Quick requirement analysis with semantic pattern discovery for rapid reuse."
+
+    - agent: dev
+      action: create_prototype
+      creates: prototype_files
+      requires: prototype-brief.md
+      serena_tools:
+        - find_symbol
+        - search_for_pattern
+        - replace_symbol_body
+        - insert_after_symbol
+      duration: 60_minutes
+      notes: "Rapid implementation using existing patterns and components. Focus on working prototype over perfection."
+
+    - agent: dev
+      action: basic_validation
+      validates: prototype_files
+      serena_tools:
+        - find_referencing_symbols
+        - search_for_pattern
+      duration: 15_minutes
+      notes: "Basic functionality and integration validation using semantic tools."
+
+    - step: prototype_demo
+      action: demonstrate_functionality
+      requires: basic_validation
+      notes: "Demo prototype functionality and gather feedback for iteration."
+
+  flow_diagram: |
+    ```mermaid
+    graph TD
+        A[Start: Rapid Prototype] --> B[analyst: rapid analysis - 15min]
+        B --> B1{Pattern Discovery}
+        B1 --> C[dev: create prototype - 60min]
+        C --> C1{Semantic Implementation}
+        C1 --> D[dev: basic validation - 15min]
+        D --> D1{Quick Validation}
+        D1 --> E[Demo & Feedback]
+        E --> F{Iteration Needed?}
+        F -->|Yes| G[Iterate on Prototype]
+        F -->|No| H[Prototype Complete]
+        G --> C
+
+        B1 -.-> B2[get_symbols_overview]
+        B1 -.-> B3[search_for_pattern]
+
+        C1 -.-> C2[find_symbol]
+        C1 -.-> C3[replace_symbol_body]
+        C1 -.-> C4[insert_after_symbol]
+
+        D1 -.-> D2[find_referencing_symbols]
+        D1 -.-> D3[search_for_pattern]
+
+        style H fill:#90EE90
+        style B fill:#FFE4B5
+        style C fill:#ADD8E6
+        style D fill:#FFA500
+        style E fill:#F0E68C
+        style B1 fill:#E6E6FA
+        style C1 fill:#E6E6FA
+        style D1 fill:#E6E6FA
+    ```
+
+  speed_optimizations:
+    analysis_shortcuts:
+      - "Use get_symbols_overview for quick codebase understanding"
+      - "search_for_pattern for immediate pattern discovery"
+      - "Skip detailed documentation, focus on working prototype"
+
+    implementation_shortcuts:
+      - "Reuse existing components via find_symbol"
+      - "Copy-adapt patterns instead of building from scratch"
+      - "Use replace_symbol_body for quick modifications"
+      - "Minimal error handling for prototype speed"
+
+    validation_shortcuts:
+      - "Basic functionality testing only"
+      - "find_referencing_symbols for impact check"
+      - "Skip comprehensive testing for speed"
+
+  iteration_cycle:
+    feedback_integration:
+      - "Quick requirement updates"
+      - "Rapid code modifications using Serena tools"
+      - "Immediate validation and demo"
+
+    pattern_learning:
+      - "Capture successful patterns for reuse"
+      - "Build semantic pattern library"
+      - "Accelerate future prototypes"
+
+  decision_guidance:
+    when_to_use:
+      - Need quick proof-of-concept
+      - Validating technical feasibility
+      - Demo for stakeholders
+      - Experimental features
+      - Time-boxed development (< 2 days)
+
+    when_not_to_use:
+      - Production-ready code needed
+      - Complex business logic
+      - Long-term maintenance required
+      - High-quality documentation needed
+
+  serena_advantages:
+    pattern_reuse:
+      - "Instant discovery of reusable components"
+      - "Quick adaptation of existing patterns"
+      - "Reduced prototyping time by 70%"
+
+    precision_speed:
+      - "Symbol-level modifications for accuracy"
+      - "Minimal context loading for speed"
+      - "Intelligent code completion"
+
+    validation_efficiency:
+      - "Automated dependency checking"
+      - "Quick integration validation"
+      - "Immediate feedback on changes"
+
+  time_targets:
+    total_duration: "90 minutes"
+    analysis: "15 minutes"
+    implementation: "60 minutes"
+    validation: "15 minutes"
+
+    efficiency_gains:
+      traditional_approach: "4-8 hours"
+      serena_enhanced: "90 minutes"
+      improvement: "75% time reduction"

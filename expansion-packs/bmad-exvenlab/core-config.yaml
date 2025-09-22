@@ -19,15 +19,23 @@ architecture:
 
 customTechnicalDocuments: null
 
-devLoadAlwaysFiles:
-  - docs/architecture/coding-standards.md
-  - docs/architecture/tech-stack.md
-  - docs/architecture/source-tree.md
+# Legacy devLoadAlwaysFiles replaced by dynamic architectureShardedLocation loading
+# devLoadAlwaysFiles:
+#   - docs/architecture/coding-standards.md
+#   - docs/architecture/tech-stack.md
+#   - docs/architecture/source-tree.md
+
+# Dynamic architecture loading: All .md files in architectureShardedLocation automatically loaded
 
 devDebugLog: .ai/debug-log.md
 devStoryLocation: docs/stories
-slashPrefix: BMad-Serena
+slashPrefix: bmad-exvenlab
 # Serena Integration Notes:
 # - Agents have Serena integration via activation instructions (STEP 3.5)
 # - Semantic tools activated per-agent, not globally
 # - Mode switching handled by individual agent definitions
+
+# Localization Settings
+locale: id-ID
+language: indonesian
+agent_communication_language: indonesian

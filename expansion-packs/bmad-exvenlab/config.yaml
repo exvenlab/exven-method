@@ -1,14 +1,14 @@
 # <!-- Powered by BMAD™ Core -->
 name: bmad-exvenlab
 version: 1.0.0
-short-title: ExvenLab Framework (Serena-Enhanced)
+short-title: ExvenLab Framework (Serena-Enhanced, Bahasa Indonesia)
 description: >-
-  Complete ExvenLab AI-powered development framework with full Serena semantic integration.
-  Provides all core BMAD agents enhanced with semantic code analysis, precision editing,
-  and intelligent workflow management. Features mode-aware agents, semantic tools,
-  and advanced codebase understanding for next-generation AI development.
+  Framework pengembangan AI ExvenLab lengkap dengan integrasi semantik Serena penuh.
+  Menyediakan semua agen BMAD inti yang ditingkatkan dengan analisis kode semantik, editing presisi,
+  dan manajemen workflow cerdas. Fitur agen yang sadar mode, alat semantik,
+  dan pemahaman codebase canggih untuk pengembangan AI generasi berikutnya dengan komunikasi Bahasa Indonesia.
 author: ExvenLab
-slashPrefix: bmad-serena
+slashPrefix: bmad-exvenlab
 serena_integration: true
 enhanced_capabilities:
   - semantic_code_analysis
@@ -16,3 +16,31 @@ enhanced_capabilities:
   - mode_aware_agents
   - intelligent_workflows
   - advanced_codebase_understanding
+  - indonesian_communication
+markdownExploder: true
+
+qa:
+  qaLocation: docs/qa
+
+prd:
+  prdFile: docs/prd.md
+  prdVersion: v4
+  prdSharded: true
+  prdShardedLocation: docs/prd
+  epicFilePattern: epic-{n}*.md
+
+architecture:
+  architectureFile: docs/architecture.md
+  architectureVersion: v4
+  architectureSharded: true
+  architectureShardedLocation: docs/architecture
+
+customTechnicalDocuments: null
+
+devDebugLog: .ai/debug-log.md
+devStoryLocation: docs/stories
+
+# Localization Settings
+locale: id-ID
+language: indonesian
+agent_communication_language: indonesian

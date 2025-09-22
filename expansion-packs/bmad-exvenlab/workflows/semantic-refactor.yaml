@@ -1,0 +1,238 @@
+# Powered by BMAD Core + Serena Integration
+workflow:
+  id: semantic-refactor
+  name: Semantic Code Refactoring Workflow
+  description: |
+    Intelligent code refactoring workflow powered by Serena semantic analysis.
+    Process: Analyze → Plan → Refactor → Validate → Test
+    Uses semantic understanding for safe, precision refactoring with dependency management.
+  type: code-improvement
+  project_types:
+    - code-refactoring
+    - pattern-implementation
+    - technical-debt-reduction
+    - performance-optimization
+    - code-modernization
+
+  sequence:
+    - agent: dev
+      action: analyze_codebase
+      creates: refactor-analysis.md
+      serena_tools:
+        - get_symbols_overview
+        - find_symbol
+        - find_referencing_symbols
+        - search_for_pattern
+      notes: "Deep semantic analysis of target code area. Map dependencies, patterns, and refactoring opportunities."
+
+    - agent: architect
+      action: plan_refactoring
+      creates: refactor-plan.md
+      requires: refactor-analysis.md
+      serena_tools:
+        - find_referencing_symbols
+        - search_for_pattern
+        - get_symbols_overview
+      notes: "Create safe refactoring plan with dependency impact analysis and risk assessment."
+
+    - agent: dev
+      action: execute_refactoring
+      updates: target_code_files
+      requires: refactor-plan.md
+      serena_tools:
+        - replace_symbol_body
+        - insert_after_symbol
+        - insert_before_symbol
+        - find_referencing_symbols
+      notes: "Execute refactoring using semantic tools for precision modifications and dependency updates."
+
+    - agent: dev
+      action: validate_refactoring
+      validates: updated_code_files
+      serena_tools:
+        - find_referencing_symbols
+        - search_for_pattern
+        - get_symbols_overview
+      notes: "Validate refactoring completeness, pattern consistency, and dependency integrity."
+
+    - agent: qa
+      action: comprehensive_testing
+      validates: refactored_system
+      serena_tools:
+        - find_symbol
+        - find_referencing_symbols
+      notes: "Test refactored code for functionality, performance, and integration correctness."
+
+  flow_diagram: |
+    ```mermaid
+    graph TD
+        A[Start: Semantic Refactor] --> B[dev: analyze codebase]
+        B --> B1{Dependency Mapping}
+        B1 --> C[architect: plan refactoring]
+        C --> C1{Risk Assessment}
+        C1 --> D[dev: execute refactoring]
+        D --> D1{Precision Refactoring}
+        D1 --> E[dev: validate refactoring]
+        E --> E1{Integrity Check}
+        E1 --> F[qa: comprehensive testing]
+        F --> F1{Quality Validation}
+        F1 --> G[Refactoring Complete]
+
+        B1 -.-> B2[get_symbols_overview]
+        B1 -.-> B3[find_referencing_symbols]
+        B1 -.-> B4[search_for_pattern]
+
+        C1 -.-> C2[find_referencing_symbols]
+        C1 -.-> C3[search_for_pattern]
+
+        D1 -.-> D2[replace_symbol_body]
+        D1 -.-> D3[insert_after_symbol]
+        D1 -.-> D4[find_referencing_symbols]
+
+        E1 -.-> E2[search_for_pattern]
+        E1 -.-> E3[find_referencing_symbols]
+
+        F1 -.-> F2[find_symbol]
+        F1 -.-> F3[find_referencing_symbols]
+
+        style G fill:#90EE90
+        style B fill:#FFE4B5
+        style C fill:#FFA500
+        style D fill:#ADD8E6
+        style E fill:#F0E68C
+        style F fill:#98FB98
+        style B1 fill:#E6E6FA
+        style C1 fill:#E6E6FA
+        style D1 fill:#E6E6FA
+        style E1 fill:#E6E6FA
+        style F1 fill:#E6E6FA
+    ```
+
+  refactoring_strategies:
+    pattern_extraction:
+      tools:
+        - find_symbol
+        - search_for_pattern
+        - replace_symbol_body
+      approach: "Identify repeated code patterns and extract into reusable components"
+      validation: "Verify pattern consistency across codebase"
+
+    dependency_optimization:
+      tools:
+        - find_referencing_symbols
+        - get_symbols_overview
+      approach: "Analyze and optimize dependency chains for better architecture"
+      validation: "Ensure no breaking changes in dependent components"
+
+    performance_improvement:
+      tools:
+        - find_symbol
+        - replace_symbol_body
+        - search_for_pattern
+      approach: "Optimize critical paths and improve algorithm efficiency"
+      validation: "Performance benchmarking and regression testing"
+
+    modernization:
+      tools:
+        - search_for_pattern
+        - replace_symbol_body
+        - find_referencing_symbols
+      approach: "Update deprecated patterns and adopt modern practices"
+      validation: "Compatibility and functionality verification"
+
+  safety_measures:
+    pre_refactoring:
+      - "Complete dependency analysis via find_referencing_symbols"
+      - "Pattern consistency check via search_for_pattern"
+      - "Impact assessment via get_symbols_overview"
+
+    during_refactoring:
+      - "Incremental changes with semantic validation"
+      - "Continuous dependency verification"
+      - "Pattern compliance monitoring"
+
+    post_refactoring:
+      - "Comprehensive integration testing"
+      - "Performance regression analysis"
+      - "Documentation updates"
+
+  quality_gates:
+    analysis_gate:
+      criteria:
+        - "Complete dependency mapping"
+        - "Pattern identification complete"
+        - "Refactoring scope defined"
+        - "Risk assessment documented"
+
+    planning_gate:
+      criteria:
+        - "Safe refactoring strategy defined"
+        - "Dependency impact analyzed"
+        - "Rollback plan available"
+        - "Testing strategy outlined"
+
+    execution_gate:
+      criteria:
+        - "All planned changes implemented"
+        - "Dependency integrity maintained"
+        - "Pattern consistency verified"
+        - "No breaking changes introduced"
+
+    validation_gate:
+      criteria:
+        - "Functionality preserved"
+        - "Performance maintained or improved"
+        - "Code quality metrics improved"
+        - "Documentation updated"
+
+  serena_advantages:
+    precision_refactoring:
+      - "Symbol-level modifications prevent errors"
+      - "Automatic dependency tracking"
+      - "Pattern-aware code changes"
+
+    safety_assurance:
+      - "Complete impact analysis before changes"
+      - "Real-time dependency validation"
+      - "Automated rollback capability"
+
+    efficiency_gains:
+      - "80% faster refactoring analysis"
+      - "90% reduction in refactoring errors"
+      - "70% faster validation process"
+
+  decision_guidance:
+    when_to_use:
+      - "Large-scale code refactoring"
+      - "Pattern implementation across codebase"
+      - "Technical debt reduction"
+      - "Performance optimization"
+      - "Code modernization projects"
+
+    refactoring_types:
+      extract_method: "Use replace_symbol_body for method extraction"
+      extract_class: "Use insert_after_symbol for new class creation"
+      move_method: "Use find_referencing_symbols for safe method movement"
+      rename_refactoring: "Use search_for_pattern for consistent renaming"
+
+  risk_mitigation:
+    high_risk_changes:
+      items:
+        - "Core business logic modifications"
+        - "Public API changes"
+        - "Database schema updates"
+      validation: "Extra QA cycles and comprehensive testing"
+
+    medium_risk_changes:
+      items:
+        - "Internal method refactoring"
+        - "Performance optimizations"
+        - "Pattern implementations"
+      validation: "Standard validation with dependency checks"
+
+    low_risk_changes:
+      items:
+        - "Code formatting and cleanup"
+        - "Comment updates"
+        - "Variable renaming"
+      validation: "Basic semantic validation"
