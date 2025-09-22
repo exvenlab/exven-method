@@ -67,12 +67,16 @@ validation_phase:
   next_steps: 'Continue with PO agent for document validation'
 
 sharding_phase:
-  indicators: [Monolithic docs exist, no docs/prd/ or docs/architecture/ folders]
+  indicators:
+    [Monolithic docs exist, no docs/prd/ or docs/architecture/ folders, no architecture memory]
   next_steps: 'Continue with PO agent for document sharding'
+  memory_check: 'Use mcp__serena__read_memory("architecture-index") to detect memory-based architecture'
 
 development_phase:
-  indicators: [Sharded docs exist, stories/ folder missing or incomplete]
+  indicators:
+    [Sharded docs exist OR architecture memory exists, stories/ folder missing or incomplete]
   next_steps: 'Continue with SM agent for story creation'
+  architecture_source: 'Check both docs/architecture/ files and Serena memory for architecture sections'
 
 implementation_phase:
   indicators: [Stories exist in Draft/Approved status]

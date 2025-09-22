@@ -46,13 +46,30 @@ To identify the next logical story based on project progress and epic definition
 
 #### 3.2 Read Architecture Documents Based on Story Type
 
-**For ALL Stories:** Use mcp**serena**find_symbol to read relevant symbols from tech-stack.md, unified-project-structure.md, coding-standards.md, testing-strategy.md
+**Memory-First Architecture Reading:**
+Use mcp**serena**read_memory to access architecture sections from Serena memory:
 
-**For Backend/API Stories, additionally:** Use mcp**serena**find_symbol for data-models.md, database-schema.md, backend-architecture.md, rest-api-spec.md, external-apis.md
+**For ALL Stories:**
 
-**For Frontend/UI Stories, additionally:** Use mcp**serena**find_symbol for frontend-architecture.md, components.md, core-workflows.md, data-models.md
+- `mcp__serena__read_memory('architecture-tech-stack')` - Technology stack and frameworks
+- `mcp__serena__read_memory('architecture-coding-standards')` - Development standards and patterns
+- `mcp__serena__read_memory('architecture-project-structure')` - Project organization and conventions
+- `mcp__serena__read_memory('architecture-testing-strategy')` - Testing approaches and requirements
 
-**For Full-Stack Stories:** Read both Backend and Frontend sections above using targeted symbol reading
+**For Backend/API Stories, additionally:**
+
+- `mcp__serena__read_memory('architecture-data-models')` - Data structures and relationships
+- `mcp__serena__read_memory('architecture-database-schema')` - Database design and constraints
+- `mcp__serena__read_memory('architecture-backend-design')` - Backend architecture patterns
+- `mcp__serena__read_memory('architecture-api-specifications')` - API contracts and standards
+
+**For Frontend/UI Stories, additionally:**
+
+- `mcp__serena__read_memory('architecture-frontend-design')` - Frontend architecture and patterns
+- `mcp__serena__read_memory('architecture-components')` - Component specifications and design
+- `mcp__serena__read_memory('architecture-user-workflows')` - User interaction patterns
+
+**For Full-Stack Stories:** Read both Backend and Frontend sections above using memory-based access
 
 #### 3.3 Extract Story-Specific Technical Details
 

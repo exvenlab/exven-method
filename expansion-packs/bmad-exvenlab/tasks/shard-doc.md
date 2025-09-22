@@ -8,9 +8,11 @@
 - Create a folder structure to organize the sharded documents
 - Maintain all content integrity including code blocks, diagrams, and markdown formatting
 
-## Primary Method: Automatic with markdown-tree
+## Primary Method: Serena Memory Storage
 
-[[LLM: First, check if markdownExploder is set to true in {root}/config.yaml. If it is, attempt to run the command: `md-tree explode {input file} {output path}`.
+[[LLM: First, check if architecture_storage.mode is set to "memory" in {root}/config.yaml. If it is, proceed with Serena memory sharding method below.
+
+If architecture_storage.mode is not set or set to "files", check if markdownExploder is set to true. If markdownExploder is true, attempt to run the command: `md-tree explode {input file} {output path}`.
 
 If the command succeeds, inform the user that the document has been sharded successfully and STOP - do not proceed further.
 
@@ -29,6 +31,142 @@ If markdownExploder is set to false, inform the user: "The markdownExploder sett
 I will now proceed with the manual sharding process."
 
 Then proceed with the manual method below ONLY if markdownExploder is false.]]
+
+## Serena Memory Sharding Method
+
+When `architecture_storage.mode: "memory"` in config.yaml, use this method:
+
+### Step 1: Parse Source Document
+
+1. **Read the source document** using mcp**serena**find_symbol to get full content
+2. **Identify level 2 sections** (## headings) as logical boundaries
+3. **Extract each section** with complete content including subsections
+
+### Step 2: Store Sections in Serena Memory
+
+For each extracted section:
+
+```yaml
+memory_storage_process:
+  parse_section:
+    - 'Extract section heading and full content'
+    - 'Include all subsections, code blocks, diagrams'
+    - 'Preserve complete markdown formatting'
+
+  create_memory_key:
+    - 'Convert heading to memory key format'
+    - "Example: '## Tech Stack' → 'architecture-tech-stack'"
+    - "Example: '## Data Models' → 'architecture-data-models'"
+
+  store_in_memory:
+    - 'Use mcp__serena__write_memory with section content'
+    - 'Include metadata: source_file, section_title, last_updated'
+```
+
+### Step 3: Create Memory Index
+
+Store a master index in memory for navigation:
+
+```yaml
+memory_index_creation:
+  key: 'architecture-index'
+  content: |
+    # Architecture Sections Index
+
+    Source: {source_file_path}
+    Last Updated: {timestamp}
+    Sections: {section_count}
+
+    ## Available Sections
+    - architecture-tech-stack: "Tech Stack"
+    - architecture-data-models: "Data Models"
+    - architecture-backend-design: "Backend Design"
+    - architecture-frontend-design: "Frontend Design"
+    - architecture-database-schema: "Database Schema"
+    - architecture-api-specifications: "API Specifications"
+
+    ## Usage
+    Read sections with: mcp__serena__read_memory('architecture-{section}')
+```
+
+### Step 4: Memory Storage Execution
+
+Execute the memory storage process:
+
+1. **For each section identified**:
+
+   ```
+   mcp__serena__write_memory(
+     memory_name: "architecture-{section-slug}",
+     content: {section_content_with_metadata}
+   )
+   ```
+
+2. **Create navigation index**:
+
+   ```
+   mcp__serena__write_memory(
+     memory_name: "architecture-index",
+     content: {index_content}
+   )
+   ```
+
+3. **Store source reference**:
+   ```
+   mcp__serena__write_memory(
+     memory_name: "architecture-source",
+     content: {source_file_info_and_timestamp}
+   )
+   ```
+
+### Step 5: Validation and Reporting
+
+After memory storage:
+
+1. **Verify storage**: Use mcp**serena**read_memory to confirm all sections stored
+2. **Report success**: Provide memory storage summary
+3. **Update config**: Confirm memory mode is active
+
+### Memory Storage Report Format
+
+```markdown
+## ✅ Architecture Stored in Serena Memory
+
+**Source**: {source_document_path}
+**Storage Mode**: Memory (Single Source of Truth)
+**Sections Stored**: {section_count}
+
+### Memory Keys Created:
+
+- `architecture-index` - Navigation and overview
+- `architecture-tech-stack` - Technology stack details
+- `architecture-data-models` - Data models and schemas
+- `architecture-backend-design` - Backend architecture
+- `architecture-frontend-design` - Frontend architecture
+- `architecture-database-schema` - Database design
+- `architecture-api-specifications` - API documentation
+
+### Usage for Agents:
+```
+
+# Read specific section
+
+mcp**serena**read_memory('architecture-tech-stack')
+
+# Get full index
+
+mcp**serena**read_memory('architecture-index')
+
+```
+
+### Benefits:
+- ✅ Single source of truth: {source_document}
+- ✅ No file proliferation in docs/architecture/
+- ✅ Dynamic access via Serena tools
+- ✅ Memory persistence across sessions
+```
+
+---
 
 ### Installation and Usage
 

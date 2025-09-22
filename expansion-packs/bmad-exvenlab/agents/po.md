@@ -61,7 +61,7 @@ commands:
   - create-story: Create user story from requirements (task brownfield-create-story)
   - doc-out: Output full document to current destination file
   - execute-checklist-po: Run task execute-checklist (checklist po-master-checklist)
-  - shard-doc {document} {destination}: run the task shard-doc against the optionally provided document to the specified destination
+  - shard-doc {document} {destination}: run the task shard-doc against the optionally provided document to the specified destination (or Serena memory if architecture_storage.mode: "memory")
   - validate-story-draft {story}: run the task validate-next-story against the provided story file
   - yolo: Toggle Yolo Mode off on - on will skip doc section confirmations
   - exit: Exit (confirm)
